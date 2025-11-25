@@ -3,7 +3,9 @@ from app.gerar_pdf import gerar_holerite
 import os
 
 app = Flask(__name__)
-app.secret_key = "86de935e75aaf84e5199eacc2008ab2cbb32b362df82654d5c9c8a0317c81715"  
+app.secret_key = "86de935e75aaf84e5199eacc2008ab2cbb32b362df82654d5c9c8a0317c81715"
+
+
 USUARIO = "admin"
 SENHA = "1234"
 
