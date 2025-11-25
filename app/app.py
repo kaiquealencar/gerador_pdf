@@ -7,7 +7,7 @@ app.secret_key = "86de935e75aaf84e5199eacc2008ab2cbb32b362df82654d5c9c8a0317c817
 
 
 USUARIO = "admin"
-SENHA = "1234"
+SENHA = "@dmin1234@"
 
 @app.route("/")
 def index():
