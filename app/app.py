@@ -5,13 +5,18 @@ import os
 app = Flask(__name__)
 app.secret_key = "86de935e75aaf84e5199eacc2008ab2cbb32b362df82654d5c9c8a0317c81715"
 
-
 USUARIO = "admin"
 SENHA = "@dmin1234@"
 
+
+
 @app.route("/")
 def index():
+    session.pop("logado", None)
+    if session.get("logado"):
+        return redirect(url_for("home"))
     return redirect(url_for("login"))
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -21,25 +26,34 @@ def login():
         senha = request.form.get("senha")
 
         if usuario == USUARIO and senha == SENHA:
+            session["logado"] = True  
             return redirect(url_for("home"))
         else:
             erro = "Usuário ou senha incorretos"
-            return render_template("login.html", erro=erro)      
+            return render_template("login.html", erro=erro)
 
     return render_template("login.html")
 
+
 @app.route("/logout")
 def logout():
-    session.pop("usuario", None)
+    session.pop("logado", None)
     return redirect(url_for("login"))
+
 
 @app.route("/home")
 def home():
+    if not session.get("logado"):
+        return redirect(url_for("login"))
     return render_template("index.html")
+
 
 @app.route("/gerar-pdf", methods=["POST"])
 def gerar_pdf():
-    nome = request.form.get("nome").upper()
+    if not session.get("logado"):
+        return redirect(url_for("login"))
+
+    nome = request.form.get("nome", "").upper()
     reg_sistema = request.form.get("reg-sis")
     rg = request.form.get("rg")
     cpf = request.form.get("cpf")
@@ -52,6 +66,7 @@ def gerar_pdf():
         as_attachment=True,
         download_name=os.path.basename(caminho_pdf)
     )
+
 
 
 if __name__ == "__main__":
