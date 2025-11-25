@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, send_file
-from gerar_pdf import gerar_holerite
+from app.gerar_pdf import gerar_holerite
 import os
 
 app = Flask(__name__)

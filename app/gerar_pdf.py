@@ -1,7 +1,7 @@
 import fitz
 import os
-from pay_day import quinto_dia_util
-from periodo_mes import periodo_mes
+from app.pay_day import quinto_dia_util
+from app.periodo_mes import periodo_mes
 from datetime import date, datetime
 
 now = datetime.now()
@@ -32,11 +32,11 @@ def gerar_holerite(nome, reg_sistema, reg_geral, cpf, conta):
         linha += 12
     
     escrever(now.strftime("%d/%m/%Y"), 280, 605)
-    
+   
 
     output = os.path.join(BASE_DIR, f"holerite_{nome.split()[0]}.pdf")
     pdf.save(output)
     pdf.close()
 
-    print("PDF gerado em:", output)
+    
     return output
