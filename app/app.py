@@ -11,62 +11,33 @@ SENHA = "1234"
 def index():
     return redirect(url_for("login"))
 
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    erro = None
-    if request.method == 'POST':
-        usuario = request.form.get('usuario')
-        senha = request.form.get('senha')
-
-        if usuario == USUARIO and senha == SENHA:
-            return redirect(url_for('index'))
-        else:
-            erro = "Usuário ou senha incorretos"
-
-    return render_template('login.html', erro=erro)
-""""
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    erro = None
     if request.method == "POST":
         usuario = request.form.get("usuario")
         senha = request.form.get("senha")
 
-        if usuario == "admin" and senha == "admin1234":
-            session["usuario"] = usuario
+        if usuario == USUARIO and senha == SENHA:
             return redirect(url_for("home"))
-
-        return render_template("login.html", erro="Usuário ou senha incorretos!")
+        else:
+            erro = "Usuário ou senha incorretos"
+            return render_template("login.html", erro=erro)      
 
     return render_template("login.html")
-"""
+
 @app.route("/logout")
 def logout():
-    session.clear("usuario", None)
+    session.pop("usuario", None)
     return redirect(url_for("login"))
 
-def login_requerido(func):
-    def wrapper(*args, **kwargs):
-        if "usuario" not in session:
-            return redirect(url_for("login"))
-        return func(*args, **kwargs)
-    wrapper.__name__ = func.__name__
-    return wrapper
-
-
-@app.route("/", methods=["GET"])
-@login_requerido
+@app.route("/home")
 def home():
-    if "usuario" not in session:
-        return redirect(url_for("login"))
-
     return render_template("index.html")
 
-
 @app.route("/gerar-pdf", methods=["POST"])
-@login_requerido
 def gerar_pdf():
-    nome = request.form.get("nome")
+    nome = request.form.get("nome").upper()
     reg_sistema = request.form.get("reg-sis")
     rg = request.form.get("rg")
     cpf = request.form.get("cpf")
