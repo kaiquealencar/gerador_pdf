@@ -58,4 +58,5 @@ def gerar_pdf():
         download_name=os.path.basename(caminho_pdf)
     )
 if __name__ == "__main__":
-    app.run(debug=True)
+    if not os.environ.get("RENDER"):
+        app.run(debug=True)
