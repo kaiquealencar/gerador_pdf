@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Holerite</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerar Holerite</h1>
+
+        <form action="/gerar-pdf" method="POST" class="form-card">
+            
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label>Reg. Sistema</label>
+                <input type="text" name="reg-sis" required>
+            </div>
+
+            <div class="form-group">
+                <label>RG</label>
+                <input type="text" name="rg" required>
+            </div>
+
+            <div class="form-group">
+                <label>CPF</label>
+                <input type="text" name="cpf" required>
+            </div>
+
+            <div class="form-group">
+                <label>Conta</label>
+                <input type="text" name="conta" required>
+            </div>
+
+            <button type="submit" class="btn">Gerar PDF</button>
+        </form>
+    </div>
+
+</body>
+</html>
