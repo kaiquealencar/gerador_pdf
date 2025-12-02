@@ -3,11 +3,12 @@ import calendar
 
 hoje = date.today()
 
-def periodo_mes(mes_corrente):
-    primeiro_dia = hoje.replace(day=1)
-    ultimo_dia_num = calendar.monthrange(hoje.year, mes_corrente)[1]
-    ultimo_dia = date(hoje.year, hoje.month, ultimo_dia_num)
-    
-    return f"{ primeiro_dia.strftime("%d/%m/%Y") } A { ultimo_dia.strftime("%d/%m/%Y") }"
 
+
+
+def periodo_mes(mes_referencia: int):
+    primeiro_dia = date(date.today().year, mes_referencia -1, 1)
+    ultimo_dia = date(date.today().year, mes_referencia -1, calendar.monthrange(date.today().year, mes_referencia -1)[1]) 
+    
+    return f"{ primeiro_dia.strftime('%d/%m/%Y') } A { ultimo_dia.strftime('%d/%m/%Y') }"
 

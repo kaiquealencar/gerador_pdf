@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, send_file
+from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash
 from app.gerar_pdf import gerar_holerite
 import os
 
@@ -58,8 +58,10 @@ def gerar_pdf():
     rg = request.form.get("rg")
     cpf = request.form.get("cpf")
     conta = request.form.get("conta")
+    mes_referencia = request.form.get("meses") 
 
-    caminho_pdf = gerar_holerite(nome, reg_sistema, rg, cpf, conta)
+
+    caminho_pdf = gerar_holerite(nome, reg_sistema, rg, cpf, conta, mes_referencia)
 
     return send_file(
         caminho_pdf,

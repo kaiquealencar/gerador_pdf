@@ -38,8 +38,16 @@ input {
     border: 1px solid #ccc;
 }
 
+select {
+    width: 106%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
 .btn {
-    width: 100%;
+    width: 106%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
