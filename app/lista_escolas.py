@@ -1,0 +1,23 @@
+escolas_taubate = {
+    "905148": "EE Álvaro Ortiz Prof",
+    "043916": "EE Amácio Mazzaropi",
+    "014175": "EE Amador Bueno da Veiga",
+    "049220": "EE Antonio de Moura Abud, Dr.",
+    "014278": "EE Antonio Magalhães Bastos",
+    "014217": "EE Bernardino Querido, Prof.",
+    "014000": "EE Cesar Costa, Deputado",
+    "046838": "EE Cesídio Ambrogi, Prof.",
+    "037898": "EE Félix Guisard Filho, Dr.",
+    "901600": "EE Gentil de Camargo, Prof.",
+    "014126": "EE Jacques Félix",
+    "014023": "EE João Alves, Mons.",
+    "039664": "EE José Marcondes Mattos, Dr.",
+    "916675": "EE José Mazella, Prof.",
+    "014285": "EE Mário Cardoso Franco, Prof.",
+    "914460": "EE Miguel Pistilli",
+    "014254": "EE Monteiro Lobato",
+    "014291": "EE Newton Câmara L. Barros",
+    "014011": "EE Roque de Castro Reis, Prof.",
+    "014266": "EE Urbano Alves S. Pereira, Engº",
+    "980146": "CEEJA Cícero Alvarenga, Mons."
+}

@@ -7,7 +7,7 @@ from datetime import date, datetime
 now = datetime.now()
 
 
-def gerar_holerite(nome, reg_sistema, reg_geral, cpf, conta, mes_referencia):
+def gerar_holerite(nome, reg_sistema, reg_geral, cpf, conta, mes_referencia, escola):
     
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     PDF_BASE = os.path.join(BASE_DIR, "modelo.pdf")
@@ -26,7 +26,7 @@ def gerar_holerite(nome, reg_sistema, reg_geral, cpf, conta, mes_referencia):
     escrever(cpf,         455, 148.5)
     escrever(conta,   378, 248)
     escrever(str(quinto_dia_util(now.year, int(mes_referencia))), 418, 273)
-    
+    escrever(escola, 239, 225)
     data_hoje = date.today()
     mes_anterior = data_hoje.month - 1
     
