@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, send_file, flash
 from app.gerar_pdf import gerar_holerite
 from app.lista_escolas import escolas_taubate
+from app.get_escola import get_nome_escola
 import os
 
 app = Flask(__name__)
@@ -60,10 +61,16 @@ def gerar_pdf():
     cpf = request.form.get("cpf")
     conta = request.form.get("conta")
     mes_referencia = request.form.get("meses") 
-    escola = escolas_taubate.get(request.form.get("escola"))
+    codigo_escola = request.form.get("escola")
+    nome_escola = escolas_taubate[codigo_escola]
+
+    nome_escola_completo = get_nome_escola(codigo_escola, nome_escola)
+    
+    
 
 
-    caminho_pdf = gerar_holerite(nome, reg_sistema, rg, cpf, conta, mes_referencia, escola)
+
+    caminho_pdf = gerar_holerite(nome, reg_sistema, rg, cpf, conta, mes_referencia, nome_escola_completo)
 
     return send_file(
         caminho_pdf,

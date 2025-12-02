@@ -3,6 +3,7 @@ import os
 from app.pay_day import quinto_dia_util
 from app.periodo_mes import periodo_mes
 from datetime import date, datetime
+import pdb
 
 now = datetime.now()
 
@@ -27,6 +28,7 @@ def gerar_holerite(nome, reg_sistema, reg_geral, cpf, conta, mes_referencia, esc
     escrever(conta,   378, 248)
     escrever(str(quinto_dia_util(now.year, int(mes_referencia))), 418, 273)
     escrever(escola, 239, 225)
+
     data_hoje = date.today()
     mes_anterior = data_hoje.month - 1
     

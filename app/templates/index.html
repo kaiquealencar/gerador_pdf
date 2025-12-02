@@ -42,8 +42,8 @@
                 <select name="escola" id="escola">
                   <option value="">Selecione uma escola</option>
 
-                  {% for codigo, nome in escolas.items() %}
-                    <option value="{{ codigo }}">{{ codigo }} - {{ nome }}</option>
+                  {% for codigo, nome in escolas.items() %}                    
+                    <option value="{{ codigo }}">{{ codigo }}  {{ nome }}</option>
                   {% endfor %}
                 </select>
             </div>
