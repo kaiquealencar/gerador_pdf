@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Holerite</title>
+    <link rel="stylesheet" href="static/css/base.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/gerar-pdf" method="POST" class="form-card">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" name="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label>Reg. Sistema (xx.xxx.xxx/xx):</label>
+                <input type="text" name="reg-sis" required>
+            </div>
+
+            <div class="form-group">
+                <label>RG:</label>
+                <input type="text" name="rg" required>
+            </div>
+
+            <div class="form-group">
+                <label>CPF:</label>
+                <input type="text" name="cpf" required>
+            </div>
+
+            <div class="form-group">
+                <label>Conta (xxxx-x):</label>
+                <input type="text" name="conta" required>
+            </div>
+            <div class="form-group">
+                <label> Cidades:</label>
+                <select name="cidades" id="cidades">
+                    <option value="#">Selecione uma cidade</option>
+                    <option value="taubate">Taubaté</option>
+                    <option value="cacapava">Caçapava</option>
+                    <option value="jambeiro">Jambeiro</option>
+                    <option value="lagoinha">Lagoinha</option>
+                    <option value="natividade">Natividade da Serra</option>
+                    <option value="paraibuna">Paraibuna</option>
+                    <option value="redencao">Redenção da Serra</option>
+                    <option value="sao_luiz">São Luiz do Paraitinga</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Lista de escolas:</label>
+                <select name="escola" id="escola">
+                  <option value="">Selecione uma escola</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="meses">Mês de referencia:</label>
+                <select name="meses" id="meses">
+                  <option value="01">Janeiro</option>
+                  <option value="02">Fevereiro</option>
+                  <option value="03">Março</option>
+                  <option value="04">Abril</option>
+                  <option value="05">Maio</option>
+                  <option value="06">Junho</option>
+                  <option value="07">Julho</option>
+                  <option value="08">Agosto</option>
+                  <option value="09">Setembro</option>
+                  <option value="10">Outubro</option>
+                  <option value="11">Novembro</option>
+                  <option value="12">Dezembro</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Gerar PDF</button>
+        </form>
+        <br>
+        <div> <a href="{{url_for('rota_logout')}}"> Sair </a>
+    </div>
+
+
+        </form>
+    </div>
+
+    <script>
+        const dadosEscolas = {{ escolas|tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/escolas.js') }}"></script>
+   
+</body>
+</html>
