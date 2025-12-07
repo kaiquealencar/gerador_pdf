@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, render_template, redirect, session, send_file, flash, request, url_for
 
-from listas.escolas import escolas
-from gerar_holerite import GerarHolerite
-from auth import login
+from app.listas.escolas import escolas
+from app.gerar_holerite import GerarHolerite
+from app.auth import login
 
 app = Flask(__name__)
 app.secret_key = "d2e90a70c44d53aae0f1284548aa62a08a9fa786d28fbfb5c0a6c6ea4163acbe"
@@ -55,10 +55,8 @@ def gerar_pdf():
             download_name= os.path.basename(path_pdf)
         )
     
+    return redirect(url_for("index"))
     
 
-
-
-
 if __name__ == "__main__":
-    app.run(debug=True)
+      app.run(debug=True, host="0.0.0.0", port=5000)
